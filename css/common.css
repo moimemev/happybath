@@ -1,0 +1,520 @@
+/* 구글폰트 가져오기 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+/* 본문 폰트 지정하기 */
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight:normal; /*400*/
+    font-size:16px;
+    line-height: 1;
+    color:#292a2b;
+}
+
+/* 여백제거 */
+body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,p, button{margin: 0; padding: 0;}
+
+/* normal */
+h1,h2,h3,h4,h5,h6,strong {font-weight: normal;}
+address, em{font-style:normal;}
+
+/* 리스트 블릿 스타일 제거 */
+ul{list-style:none;}
+
+/* 이미지 태그 하단에 생기는 여백 */
+/* 인라인 블럭은 기본적으로 여백을 달고 다닌다. */
+img{vertical-align: middle;}
+
+/* 테두리 제거 */
+img{border: 0;}
+button{border:none; outline:none;}
+
+/* 버튼 초기화 */
+button{cursor: pointer; background: transparent;}
+
+/* 링크텍스트 밑줄제거, 링크텍스트 색상 */
+a{text-decoration: none; color:#292a2b;} /* 색상은 body와 동일하게 지정 */
+
+body{}
+
+/* 공통 클래스 */
+.inner{width:1170px; margin: 0 auto; position: relative;}
+.inner::after{content:""; display: block; clear:both;}
+
+/* 헤더영역 */
+#header{}
+
+#header h1{float:left; margin-top: 23px;} /* 왼쪽정렬, 위쪽 여백 */
+
+/* a영역 확장 */
+/* 인라인 블럭인 img를 감싸기 위해 블럭으로 지정한다 */
+#header h1 a{display: block;}
+
+/* 메뉴 */
+#header .m-menu{}
+#header .m-menu .btn-close{display: none;}
+#header nav{float:left;}/*  왼쪽정렬 */
+
+#header #gnb{overflow: hidden;} /* 클리어 픽스 방법1 */
+/*#header #gnb::after{content:""; display: block; clear: both;}  클리어픽스 방법2 */
+#header #gnb li{float:left; }
+#header #gnb li a{
+    display:block; line-height: 140px; padding:0 35px; /* a영역 링크면적 확장 */
+    font-size: 20px; font-weight: 500;
+    position: relative;
+}
+
+#header #gnb li a::after{  
+    content:"";  
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);    
+    width:0px;    /* 70:padding value */
+    bottom:10px;
+    height:3px;
+    background: #ff4583;
+
+    transition:all 0.3s ease-in;
+}
+
+#header #gnb li a:hover{
+    font-weight: 900; /* fw지정시 위치가 덜컹거리게 됨*/
+    color:#FF4583;
+}
+
+/* 호버 시 메뉴아래 밑줄 긋기 */
+#header #gnb li a:hover::after{
+    width:calc(100% - 70px);    /* 70:padding value */
+}
+
+/* 전체메뉴 숨기기(모바일용 버튼) */
+#header .btn-open{display: none;}
+
+/* 메인비주얼영역 */
+#mainSlide{} 
+#mainSlide .slide{position: relative;}
+
+#mainSlide img{
+    display: block; 
+    margin:0 auto;
+    width:100%;
+} 
+
+
+/* 모바일 이미지 숨김, pc 이미지 보임 */
+#mainSlide img.pc{display:block;}
+#mainSlide img.mobile{display:none;}
+
+#mainSlide .slick-prev{left:25px; z-index:2}
+#mainSlide .slick-next{right:25px;  z-index:2}
+#mainSlide .slick-prev:before, .slick-next:before{
+    font-size: 40px;
+}
+
+/* 유니코드를 넣어 그림기호 표시할 수 있음 */
+/* #mainSlide .slick-next:before{content:"\27A4";} */
+
+#mainSlide .slick-dots{
+    bottom:25px;
+}
+
+#mainSlide .container{
+    position: absolute;  /* 겹쳐쓰기 위해 position을 지정함 */
+    width: 1170px;
+    height:100%;        /* 이미지 높이만큼 잡힘 */
+    top:0;          
+    left: 50%;
+    transform:translateX(-50%);    /* 중앙정렬 position지정시 margin:0 auto는 지정하지 않음 */
+}
+
+#mainSlide .container .txt-wrap{
+    position: absolute;
+    left: 0;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+#mainSlide .txt-wrap .title{
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+}
+
+#mainSlide .txt-wrap .title span{
+    color:#FF4583;
+}
+
+#mainSlide .txt-wrap .sub-title{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#mainSlide .txt-wrap .cont{
+    font-size: 32px;
+    line-height: 1.3em;
+}
+
+/* 섹션 공통 */
+.sec .tit-box{
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* 타이틀 텍스트 */
+.sec .tit-box h2{font-size: 45px; line-height: 1; font-weight: 700; }
+
+/* 섹션1 영역*/
+#sec-1{padding:120px 0;}   
+#sec-1 .tit-box p{
+    font-size: 26px; line-height: 1; font-weight: 500; margin-top: 20px;
+}
+
+#sec-1 .tit-box p br{display: none;} /* 줄바꿈 숨기기 */
+
+#sec-1 .list{margin-bottom: 60px; }
+
+/* overflow:hidden은 그림자가 잘리므로 after로 잃어버린 부모값을 찾는다 */
+#sec-1 .list::after{content:""; display: block; clear: both;}
+#sec-1 .list .item{   
+    float:left;
+    width:270px; 
+    height:400px; /* 배경 이미지 공간값 지정 */
+    border-radius: 36px;  
+    box-sizing: border-box;
+
+    border:5px solid rgba(0,0,0,0);
+    background-position:50% 0;
+    background-repeat: no-repeat;    
+    transition:all 0.3s ease;
+}
+
+/* 두번째 이후 모두 적용 */
+#sec-1 .list li+li{
+    margin-left: 30px;
+}
+
+#sec-1 .list .item:hover{
+    border-width:5px;
+    border-style: solid;
+    background-position-y:-20px;
+    box-shadow:0 0 8px 4px rgba(0,0,0,0.2); 
+}
+
+#sec-1 .list .item1:hover{border-color: rgba(255, 156, 103, 0.8);}
+#sec-1 .list .item2:hover{border-color:rgba(253, 161, 2, 0.8);}
+#sec-1 .list .item3:hover{border-color:rgba(194, 31, 2, 0.8);}
+#sec-1 .list .item4:hover{border-color:rgba(215, 215, 77, 0.8);}
+
+/* 배경이미지에 넣기 특정도 0120*/
+#sec-1 .list .item1{ 
+    background-image: url('../images/product-img1.png');     
+}
+
+#sec-1 .list .item2{
+    background-image: url('../images/product-img2.png'); 
+}
+
+#sec-1 .list .item3{
+    background-image: url('../images/product-img3.png'); 
+}
+
+#sec-1 .list .item4{
+    background-image: url('../images/product-img4.png'); 
+}
+
+
+/* 텍스트 숨김처리 */
+#sec-1 .list li span{ 
+    position: absolute;
+    left:-9999px;
+    width: 0;  
+    height:0;
+    overflow: hidden;
+    font-size: 0;
+    text-indent:-9999px; 
+    line-height: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#sec-1 .inner > p{
+    text-align: center; font-size:0;     
+    margin-top: 60px;
+}
+
+#sec-1 .inner > p::before{
+    content:"응모방법";
+    display: inline-block;
+    background: #CED3D6;
+    padding:10px;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 8px;
+}
+
+#sec-1 .inner > p span{
+    display: inline-block;
+    margin-left: 10px;
+    padding:10px;
+    font-size: 22px;
+    line-height: 1;
+    background: skyblue;
+    border-radius: 8px;
+}
+
+#sec-1 .inner > p span br{display: none;} /* 줄바꿈 숨기기 */
+
+#sec-1 .btn-wrap{         
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* height와 line-height 함께 쓸 때는 약간의 위치 조정을 위해 사용함 */
+#sec-1 .btn-wrap .btn{         
+    width:300px;    
+    height: 80px; 
+    padding:0px 40px;
+
+    font-size: 28px;
+    line-height: 1;
+    border-radius: 40px;
+    background: #000;
+    color:white;
+    
+}
+
+#sec-2{padding: 120px 0 160px;}
+#sec-2 .inner{text-align: center;}
+#sec-2 .list-wrap{
+    border: 1px solid #dedede; 
+    box-sizing: border-box;
+    border-radius: 30px;    
+    text-align: center;
+    padding:80px 0;
+}
+
+#sec-2 .list{display: inline-block; }
+#sec-2 .list::after{content:""; display: block; clear: both;}
+#sec-2 .list li{float:left; width: 220px; text-align: center; }
+#sec-2 .list li img{}
+#sec-2 .list li .txt-box{margin-top: 20px; line-height: 1.5;}
+#sec-2 .list li+li{margin-left: 42px;}
+
+/* 푸터 */
+#footer{background: #EAEEEF; width: 100%; height:200px; padding-top:30px;}
+#footer .inner{}
+#footer .foot-logo{float: left; }
+#footer .foot-info{float: left; margin-left: 46px;}
+#footer .foot-info address{font-size: 16px; line-height: 1.5;}
+#footer .foot-info .copyright{font-size: 14px; line-height: 1;}
+
+/* 마지막꺼는 position을 지정하는 것이 안정적이다 */
+#footer .foot-sns{position: absolute; right: 0; top: 0;}
+#footer .foot-sns a{
+    display: inline-block;
+    width:32px;
+    height:32px;
+
+    text-indent: -9999px;
+}
+#footer .foot-sns a.icon-f{
+    background:url('../images/ico_facebook.png') no-repeat center center;
+}
+
+#footer .foot-sns a.icon-y{
+    background:url('../images/ico_youtube.png') no-repeat center center;
+}
+
+/* 반응형 디자인을 위한 코드 작성 */
+/* 조건은 and로 연결 */
+/* 작은 순서대로 작성하기 */
+
+/* 768~1024 */
+/* 768부터 패드 사이즈 */
+@media screen and (max-width:1024px){
+    
+}
+
+/* 481 ~ 767 */
+@media screen and (max-width:767px){
+    /* 특정도 값이 변경되면 안됨. 특정도 값이 줄어들면 적용이 안됨 */
+    /* 나중에 쓰더라도 특정도 값이 적으면 이전 값이 적용됨 */
+    /* .btn-open{display: block;}은 적용안됨 */
+
+    /* 비율계산기로 내부 크기 측정 */
+
+    /* 모바일 공통 */
+    .inner{
+        /* width:85.55%;  넓이 지정하는 첫번째 방법 */
+        /* 넓이 지정하는 두번째 방법 */
+        width:100%; /* desktop : 1170px  */       
+        box-sizing: border-box;    
+        padding: 0  7.2222%;
+    }
+    
+    /* 모바일 헤더 */
+    #header .inner{height: 80px;}
+
+    #header h1{
+        float:none; 
+        margin-top: 8px;
+        
+        /* 가운데 정렬 방법1
+        width: 95px;
+        margin: 0 auto; 
+        */
+        /* 가운데 정렬 방법2 */
+        /* position:absolute;
+        left: 50%;
+        top: 10px;
+        transform:translateX(-50%); */
+        
+        /* 가운데 정렬 방법3 */        
+        text-align: center;
+
+        /* 가운데 정렬 방법4
+        inner에 text-align:center 지정
+        display: inline-block; */
+    }
+
+    /* 로고 이미지 영역 만들기 */
+    #header h1 a{
+        display: inline-block; 
+        width: 60px;
+    }
+
+    #header h1 a img{width: 100%;}
+
+    /* 메뉴 */
+    #header .m-menu{
+        position: absolute; 
+        left: -100%;
+        top: 0;
+        width:100%;
+        height:600px; 
+        background:#fff;
+        z-index:999;
+
+        /* 메뉴 왼쪽으로 숨겨놓기 */
+        /* transform:translateX(-100%); */
+        /*transition:all 0.6s ease-out;  */
+    }
+
+    #header .m-menu.show{transform:translateX(0)}
+
+    #header .m-menu .m-menu-header{
+        height: 90px; /* pos로 잃어버린 부모의 높이값을 찾자 */
+        position: relative;
+    }
+
+    #header .m-menu .m-menu-header .btn-close{
+        position: absolute;
+        display: block;
+        top:50%;
+        transform:translateY(-50%);
+        right:26px;
+    }
+
+    #header nav{float:none; }
+    #header #gnb li{float:none; padding:0 26px;}
+    #header #gnb li a{
+        font-size: 24px;         
+        border-bottom:1px solid #878d91;
+    }
+    #header #gnb li a::after{display: none;} /* 줄 없애고 싶을 때 설정 */
+
+    /* 전체메뉴 숨기기(모바일용 버튼) */
+    #header .btn-open{
+        display: block;
+        position: absolute;
+        left: 26px;
+        top:50%;
+        transform:translateY(-50%);
+    }    
+
+    /* 모바일 메인비주얼영역 */
+
+    /* 모바일 이미지 보임, pc 이미지 숨김 */
+    #mainSlide img.pc{display:none;}
+    #mainSlide img.mobile{display:block;}
+
+    #mainSlide .container{
+        width: 100%;                
+        box-sizing: border-box;
+    }
+
+    #mainSlide .container .txt-wrap{left:80px;}        
+    #mainSlide .txt-wrap .title{font-size: 28px;}
+    #mainSlide .txt-wrap .sub-title{font-size: 16px;}
+    #mainSlide .txt-wrap .cont{font-size: 24px;}
+
+    /* 모바일 섹션 공통*/
+    .sec .tit-box h2{font-size: 32px;}
+
+    /* 모바일 섹션1*/
+    #sec-1{padding:80px 0;} 
+    #sec-1 .inner{text-align: center;}
+    #sec-1 .tit-box p{font-size: 22px; margin-top: 15px;}
+
+    /* 아이템 가로크기 변경 */  
+    #sec-1 .list{display: inline-block; margin-top: 50px;}  /* 리스트 가운데 정렬 */    
+    #sec-1 .list li+li{margin-left: 0px;}
+    #sec-1 .list .item{float:none; width:460px;}
+
+    /* 모바일 섹션1 응모하기 */
+    #sec-1 .inner > p span{display: block; line-height: 1.5; margin-top: 10px;}
+    #sec-1 .inner > p span br{display: block; } /* 줄바꿈 보임 */
+    #sec-1 .btn-wrap{margin-top: 40px;}
+    /* #sec-1 .list{display: inline-block; margin-top: 50px;}  */
+
+    /* 모바일 섹션2 */
+    #sec-2{padding:80px 0;} 
+    #sec-2 .list-wrap{padding:40px 0; margin-top: 40px;}   
+    #sec-2 .list-wrap .list li{
+        width: 50%; float: left; 
+        padding:0 10%;
+        box-sizing: border-box;
+    }
+    #sec-2 .list-wrap .list li img{width: 100%;}
+
+    #sec-2 .list-wrap .list li+li{margin-left: 0;}
+    #sec-2 .list-wrap .list li+li+li{margin-top: 20px;}
+
+    /* 모바일 푸터 */  
+    #footer{}  
+    #footer .inner{padding-bottom: 30px; text-align: center;}
+    #footer .foot-logo{float:none;}
+    #footer .foot-info{float:none; margin-left: 0; text-align: center; } 
+
+    #footer .foot-sns{
+        position:static; 
+        right:0;
+    }
+
+} /* 767px 끝부분 */
+
+/* 0~480 */
+/* device width 360 : 안드로이드 375 : 아이폰 */
+/* css width : 375 phys width: 1125 pixel ratio:3 */
+@media screen and (max-width:480px){
+    #mainSlide .container .txt-wrap{left:40px;}        
+    #mainSlide .txt-wrap .title{font-size: 24px;}
+    #mainSlide .txt-wrap .sub-title{font-size: 14px;}
+    #mainSlide .txt-wrap .cont{font-size: 16px;}
+
+    #sec-1{padding:70px 0;} 
+    #sec-1 .tit-box p{line-height: 1.2em; margin-top: 10px;}
+    #sec-1 .tit-box p br{display: block;}
+
+    #sec-1 .list .item{float:none; width:270px;}    
+}
+
+@media screen and (max-width:360px){
+    .sec .tit-box h2{font-size: 22px;}
+    #sec-1{padding:60px 0;} 
+    #sec-1 .tit-box p{font-size: 16px;}   
+
+    #sec-2 .list-wrap .list li{
+        padding:0;
+    }
+}
